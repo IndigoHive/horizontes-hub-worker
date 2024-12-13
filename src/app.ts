@@ -4,7 +4,7 @@ import { logger } from './lib/common'
 (() => {
   const interval = process.env.RUN_SCRIPT_INTERVAL_MS as string
 
-  console.log(interval)
+  logger.info(`Running script every ${interval}ms`)
 
   setInterval(async () => {
     await handle()
