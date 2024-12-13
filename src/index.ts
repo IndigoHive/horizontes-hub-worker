@@ -19,16 +19,30 @@ import { cogfyCollectionNameCollectionId, cogfyCollectionNameFieldId } from './l
       ]
     })
 
-    const recordValues = records.data.map(record => {
-      const item = record.properties[cogfyCollectionNameFieldId[collection[0] as keyof typeof cogfyCollectionNameFieldId]] as TextRecordProperty
+    const recordValues = records.data.map(record => record.properties[cogfyCollectionNameFieldId[collection[0] as keyof typeof cogfyCollectionNameFieldId]] as TextRecordProperty)
 
-      return item.text.value
-    })
+    const valuesToRemove = recordValues.filter(value => value.text.value && !collectionUrls[collection[0] as keyof typeof collectionUrls].includes(value.text.value))
+    const valuesToAdd = collectionUrls[collection[0] as keyof typeof collectionUrls].filter(value => !recordValues.map(recordValue => recordValue.text.value).includes(value))
 
-    const valuesToRemove = recordValues.filter(value => value && !collectionUrls[collection[0] as keyof typeof collectionUrls].includes(value))
-    const valuesToAdd = collectionUrls[collection[0] as keyof typeof collectionUrls].filter(url => !recordValues.includes(url))
+    for (const value of valuesToRemove) {
+      const record = records.data.find(record => (record.properties[cogfyCollectionNameFieldId[collection[0] as keyof typeof cogfyCollectionNameFieldId]] as TextRecordProperty).text.value === value.text.value)
 
-    console.log('To remove ' + collection[0], valuesToRemove)
-    console.log('To add  ' + collection[0], valuesToAdd)
+      if (record) {
+        await cogfy.records.delete(collection[1], record.id)
+      }
+    }
+
+    for (const value of valuesToAdd) {
+      await cogfy.records.create(collection[1], {
+        properties: {
+          [cogfyCollectionNameFieldId[collection[0] as keyof typeof cogfyCollectionNameFieldId]]: {
+            type: 'text',
+            text: {
+              value
+            }
+          }
+        }
+      })
+    }
   }
 })()
