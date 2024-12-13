@@ -11,4 +11,4 @@ When user creates new page in Framer application, this page have to be inside Co
      - If a URL does not exist in Cogfy collections, create a new record.
    - **Check for Removed URLs**: Identify any URLs present in Cogfy collections but missing from the extracted URLs.
      - If a URL exists in Cogfy collections but is not found in the extracted list, remove it from the collection.
-
+4. **Frequency**: Script runs every hour
