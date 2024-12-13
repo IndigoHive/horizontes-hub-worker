@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "dotenv -e .env.local -e .env -- nodemon src/index.ts | pino-pretty",
+    "dev": "dotenv -e .env.local -e .env -- nodemon src/app.ts | pino-pretty",
     "build": "rimraf build && tsc",
     "start": "node build/app.js"
   },
