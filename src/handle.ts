@@ -2,7 +2,7 @@ import { Cogfy, TextRecordProperty } from 'cogfy'
 import { fetchAndParseSitemap, mapUrlsToCogfyCollections } from './lib/utils'
 import { cogfyCollectionNameCollectionId, cogfyCollectionNameFieldId } from './lib/constants/cogfy-collections'
 
-(async () => {
+export async function handle() {
   const urls = await fetchAndParseSitemap('https://horizontes-hub.framer.website/sitemap.xml')
   const collectionUrls = mapUrlsToCogfyCollections(urls)
 
@@ -45,4 +45,4 @@ import { cogfyCollectionNameCollectionId, cogfyCollectionNameFieldId } from './l
       })
     }
   }
-})()
+}
