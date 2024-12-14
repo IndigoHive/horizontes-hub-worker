@@ -1,4 +1,4 @@
-# POC HORIZONTES HUB SITEMAP HANDLE
+# HORIZONTES HUB SITEMAP WORKER
 
 ## About
 When user creates new page in Framer application, this page have to be inside Cogfy to provide Hori RAG context.
