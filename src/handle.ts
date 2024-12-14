@@ -50,7 +50,7 @@ export async function handle() {
               value: {
                 interval: 1,
                 unit: 'hours',
-                startDate: now.toISOString(),
+                startDate: addMinutes(now.toISOString(), 5).toISOString(),
                 nextDate: addMinutes(now.toISOString(), 5).toISOString()
               }
             }
