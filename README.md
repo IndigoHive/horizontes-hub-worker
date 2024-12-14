@@ -22,10 +22,11 @@ When user creates new page in Framer application, this page have to be inside Co
 | `npm run test`   | Executes the tests configured in the project.                      |
 
 ## Packages
-| Package      | Description                                  |
-|--------------|----------------------------------------------|
-| `typescript` | JavaScript superset.           |
-| `axios`      | HTTP client for making API requests.        |
-| `pino`       | Logger for Node.js.               |
-| `cogfy` | Cogfy Node.js SDK client|
+| Package                                         | Description                          |
+|-------------------------------------------------|--------------------------------------|
+| [`typescript`](https://www.typescriptlang.org/) | JavaScript superset.                 |
+| [`axios`](https://axios-http.com/)              | HTTP client for making API requests. |
+| [`pino`](https://getpino.io/)                   | Logger for Node.js.                  |
+| [`cogfy`](https://docs.cogfy.com/nodejs)              | Cogfy Node.js SDK client.            |
+
 
