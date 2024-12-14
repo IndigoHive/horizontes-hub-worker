@@ -27,4 +27,5 @@ When user creates new page in Framer application, this page have to be inside Co
 | `typescript` | JavaScript superset.           |
 | `axios`      | HTTP client for making API requests.        |
 | `pino`       | Logger for Node.js.               |
+| `cogfy` | Cogfy Node.js SDK client|
 
